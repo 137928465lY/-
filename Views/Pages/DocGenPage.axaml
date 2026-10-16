@@ -1,0 +1,130 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:叶片缺陷审核.Models"
+             xmlns:pages="using:叶片缺陷审核.ViewModels.Pages"
+             x:Class="叶片缺陷审核.Views.Pages.DocGenPage"
+             x:DataType="pages:DocGenPageViewModel">
+
+    <Border Margin="10" Background="#E8F5E9" CornerRadius="15">
+        <Grid ColumnDefinitions="420,*" Margin="10">
+
+            <!-- 左：输入区 -->
+            <Border Grid.Column="0" Background="White" CornerRadius="15" Padding="15"
+                    BoxShadow="0 4 12 0 #26000000" Margin="0,0,10,0">
+                <Grid RowDefinitions="Auto,*,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                        <TextBlock Text="缺陷信息" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <TextBox Grid.Row="1" Text="{Binding DefectInfo}" TextWrapping="Wrap" AcceptsReturn="True"
+                             PlaceholderText="填写缺陷信息：风场/机位号、叶片型号、损伤位置（展向/弦向）、布层数、材料、损伤程度…"/>
+
+                    <TextBlock Grid.Row="2" Text="参考知识库（可多选，不选=全部）" FontSize="12" Foreground="#555555" Margin="0 10 0 4"/>
+                    <Border Grid.Row="3" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="8"
+                            MaxHeight="100">
+                        <ScrollViewer>
+                            <ItemsControl ItemsSource="{Binding Bases}" Margin="6">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:KnowledgeBaseInfo">
+                                        <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected}"
+                                                  FontSize="13" Margin="2 3"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Border>
+
+                    <StackPanel Grid.Row="4" Margin="0 10 0 0" Spacing="6">
+                        <CheckBox Content="表格使用三线表（否则全框线）" IsChecked="{Binding TableThreeLine}"/>
+                        <CheckBox Content="快速模式（跳过审校）" IsChecked="{Binding FastMode}"
+                                  ToolTip.Tip="勾选后第三步审校润色跳过，撰写草稿直接作为终稿"/>
+                    </StackPanel>
+                    <Grid Grid.Row="6" ColumnDefinitions="Auto,Auto" ColumnSpacing="8" Margin="0,12,0,0">
+                        <!-- 生成文档下方放导入模板按钮 -->
+                        <StackPanel Spacing="8">
+                            <Button Content="生成文档" Classes="primary" Command="{Binding GenerateCommand}" Width="150"/>
+                            <Button Content="导入标准输出模板" Classes="info" Command="{Binding ImportTemplateCommand}" Width="150"/>
+                        </StackPanel>
+                        <Button Grid.Column="1" Content="停止" Classes="danger" Command="{Binding CancelCommand}"
+                                VerticalAlignment="Top"/>
+                    </Grid>
+
+                    <TextBlock Grid.Row="7" Text="{Binding TemplateName}" FontSize="11" Foreground="#757575"
+                               Margin="0 6 0 0" TextTrimming="CharacterEllipsis"
+                               ToolTip.Tip="当前输出模板（导入 docx 模板可替换）"/>
+                </Grid>
+            </Border>
+
+            <!-- 右：预览区 + 修改意见区 -->
+            <Grid Grid.Column="1" RowDefinitions="*,Auto" Margin="10,0,0,0">
+                <!-- 预览区（临时 docx 渲染为图片，保存后才正式落盘） -->
+                <Border Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000">
+                    <Grid RowDefinitions="Auto,Auto,*">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Margin="0 0 0 8">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                                <TextBlock Text="文档预览" Foreground="Black" FontSize="16" FontWeight="Bold"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <TextBlock Text="缩放" FontSize="12" Foreground="#555555" VerticalAlignment="Center"/>
+                                <Slider Minimum="0.5" Maximum="3" Value="{Binding PreviewZoom}"
+                                        Width="160" VerticalAlignment="Center" TickFrequency="0.1"/>
+                                <TextBlock Text="{Binding PreviewZoom, StringFormat={}{0:P0}}" FontSize="12"
+                                           Foreground="#555555" VerticalAlignment="Center" Width="42"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Grid.Row="1" Text="生成过程中将流式显示 Agent 输出，完成后渲染为文档页面预览"
+                                   FontSize="11" Foreground="#9E9E9E" Margin="0 0 0 8"/>
+                        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto"
+                                      VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding PreviewImages}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="10"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}"
+                                               Height="{Binding $parent[UserControl].DataContext.PreviewImageHeight}"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <!-- 渲染进度条（点击生成显示，渲染完成消失） -->
+                        <ProgressBar Grid.Row="2" Height="8" VerticalAlignment="Bottom" Margin="10,0,10,4"
+                                     IsVisible="{Binding RenderProgressVisible}"
+                                     Minimum="0" Maximum="100"
+                                     Value="{Binding ProgressValue}"
+                                     IsIndeterminate="{Binding ProgressIsIndeterminate}"/>
+                    </Grid>
+                </Border>
+
+                <!-- 修改意见区 -->
+                <Border Grid.Row="1" Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000" Margin="0,10,0,0">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="修改意见" Foreground="Black" FontSize="16" FontWeight="Bold"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBox Grid.Row="1" Text="{Binding RevisionText}" Height="60" TextWrapping="Wrap"
+                                 AcceptsReturn="True" FontSize="13"
+                                 PlaceholderText="填写 AI 生成文档存在的问题和需要删减的地方…"
+                                 IsEnabled="{Binding CanSave}"/>
+                        <Button Grid.Row="2" Content="应用修改意见到方案" Classes="primary" Margin="0 8 0 0"
+                                Command="{Binding ApplyRevisionCommand}" IsEnabled="{Binding CanSave}"
+                                HorizontalAlignment="Left"/>
+                        <Button Grid.Row="3" Content="保存 .docx" Classes="info" Margin="0 8 0 0"
+                                Command="{Binding SaveCommand}" IsEnabled="{Binding CanSave}"
+                                HorizontalAlignment="Left"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

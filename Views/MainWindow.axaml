@@ -1,0 +1,84 @@
+<suki:SukiWindow xmlns="https://github.com/avaloniaui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:vm="using:叶片缺陷审核.ViewModels"
+                 xmlns:models="using:叶片缺陷审核.Models"
+                 xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+                 x:Class="叶片缺陷审核.Views.MainWindow"
+                 x:DataType="vm:MainWindowViewModel"
+                 IsTitleBarVisible="False"
+                 Title="叶片维修工程文件编制审核系统"
+                 Icon="avares://叶片维修工程文件编制审核系统/Assets/Logo.ico"
+                 Width="1280" Height="800">
+
+    <suki:SukiWindow.Hosts>
+        <suki:SukiToastHost Manager="{Binding ToastManager}"/>
+        <suki:SukiDialogHost Manager="{Binding DialogManager}"/>
+    </suki:SukiWindow.Hosts>
+
+    <Grid RowDefinitions="50,*">
+
+        <!-- 自绘标题栏：白底 + 底部投影 -->
+        <Grid Background="White" x:Name="TitleBar"
+              PointerPressed="TitleBar_PointerPressed">
+            <Grid.Effect>
+                <DropShadowEffect Color="#D1D1D1" BlurRadius="6" OffsetY="1" Opacity="0.6"/>
+            </Grid.Effect>
+            <StackPanel Orientation="Horizontal" Margin="15,0,0,0" VerticalAlignment="Center">
+                <Image Source="avares://叶片维修工程文件编制审核系统/Assets/Logo.ico" Width="22" Height="22"/>
+                <TextBlock Text="叶片维修工程文件编制审核系统" Margin="10,0,0,0"
+                           VerticalAlignment="Center" FontWeight="Bold" FontSize="15"
+                           Foreground="#333333"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Click="Minimize_Click" Width="44" Height="30"
+                        Background="Transparent" BorderThickness="0" Padding="0">
+                    <TextBlock Text="&#xe729;" FontFamily="{StaticResource Iconfont}" FontSize="14" Foreground="#555555"/>
+                </Button>
+                <Button Click="Maximize_Click" Width="44" Height="30"
+                        Background="Transparent" BorderThickness="0" Padding="0">
+                    <TextBlock x:Name="MaxIcon" Text="&#xe620;" FontFamily="{StaticResource Iconfont}" FontSize="14" Foreground="#555555"/>
+                </Button>
+                <Button Click="Close_Click" Width="44" Height="30"
+                        Background="Transparent" BorderThickness="0" Padding="0">
+                    <TextBlock Text="&#xe82a;" FontFamily="{StaticResource Iconfont}" FontSize="14" Foreground="#555555"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- 侧边菜单 + 页面内容 -->
+        <Border Grid.Row="1" Background="White">
+            <suki:SukiSideMenu x:Name="SideMenu"
+                               IsSearchEnabled="False"
+                               ItemsSource="{Binding MenuItems}"
+                               SelectedItem="{Binding ActivePage}"
+                               SelectionChanged="SideMenu_SelectionChanged">
+                <suki:SukiSideMenu.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding SubItems}" x:DataType="models:PageBase">
+                        <suki:SukiSideMenuItem Header="{Binding DisplayName}" Classes="Compact"
+                                               FontSize="{Binding TitleSize}"
+                                               IsExpanded="{Binding IsGroupExpanded, Mode=TwoWay}">
+                            <suki:SukiSideMenuItem.Icon>
+                                <TextBlock Text="{Binding IconCode}" FontFamily="{StaticResource Iconfont}"
+                                           FontSize="{Binding IconSize}" Foreground="#555555"
+                                           VerticalAlignment="Center"/>
+                            </suki:SukiSideMenuItem.Icon>
+                        </suki:SukiSideMenuItem>
+                    </TreeDataTemplate>
+                </suki:SukiSideMenu.ItemTemplate>
+                <suki:SukiSideMenu.HeaderContent>
+                    <StackPanel Margin="10,20,10,30">
+                        <Border Background="#4CAF50" Width="46" Height="46" CornerRadius="10"
+                                HorizontalAlignment="Center">
+                            <TextBlock Text="审" FontSize="22" FontWeight="Bold"
+                                       Foreground="White"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="叶片缺陷审核" FontSize="13" FontWeight="Bold"
+                                   Foreground="#333333" Margin="0,8,0,0"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </suki:SukiSideMenu.HeaderContent>
+            </suki:SukiSideMenu>
+        </Border>
+    </Grid>
+</suki:SukiWindow>

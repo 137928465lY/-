@@ -1,0 +1,13 @@
+# 构建产物
+bin/
+obj/
+publish/
+*.zip
+*.user
+.vs/
+
+# 用户数据（%AppData%，不入库）
+*.log
+
+# IDE
+.idea/

@@ -1,0 +1,142 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:叶片缺陷审核.Models"
+             xmlns:pages="using:叶片缺陷审核.ViewModels.Pages"
+             x:Class="叶片缺陷审核.Views.Pages.AuditPage"
+             x:DataType="pages:AuditPageViewModel">
+
+    <Border Margin="10" Background="#E8F5E9" CornerRadius="15">
+        <Grid ColumnDefinitions="*,380" Margin="10">
+
+            <!-- 左：文档 + 配置 + 预览 -->
+            <Grid RowDefinitions="Auto,Auto,Auto,*" Margin="0,0,10,0">
+
+                <!-- 待审文档 -->
+                <Border Background="White" CornerRadius="15" Padding="15" BoxShadow="0 4 12 0 #26000000">
+                    <StackPanel Spacing="8">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                                <TextBlock Text="待审文档" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8">
+                                <Button Content="添加 DOCX" Classes="primary" Command="{Binding AddDocumentCommand}"/>
+                                <Button Content="移除选中" Classes="danger" Command="{Binding RemoveDocumentCommand}"
+                                        CommandParameter="{Binding SelectedDocument}"/>
+                                <Button Content="生成预览" Classes="info" Command="{Binding PreviewCommand}"/>
+                            </StackPanel>
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Documents}" SelectedItem="{Binding SelectedDocument}" Height="90">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate x:DataType="models:DocumentInfo">
+                                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="2">
+                                        <TextBlock Text="{Binding FileName}" FontSize="13" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding FileSizeText}" FontSize="11" Foreground="#9E9E9E"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- 审核配置 -->
+                <Border Grid.Row="1" Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000" Margin="0,10,0,0">
+                    <StackPanel Spacing="8">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                                <TextBlock Text="审核配置" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8">
+                                <Button Content="导入标准文档" Classes="info" Command="{Binding SelectStandardCommand}"/>
+                                <TextBlock Text="{Binding StandardDocumentName}" VerticalAlignment="Center"
+                                           FontSize="12" Foreground="#555555" MaxWidth="260" TextTrimming="CharacterEllipsis"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Text="补充审核条款（每行一条）" FontSize="12" Foreground="#555555"/>
+                        <TextBox Text="{Binding AuditClausesText}" Height="60" TextWrapping="Wrap" AcceptsReturn="True"
+                                 PlaceholderText="例如：机位号必须与叶片套号对应"/>
+                        <TextBlock Text="自定义提示词" FontSize="12" Foreground="#555555"/>
+                        <TextBox Text="{Binding CustomPrompt}" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- 操作 -->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="10" Margin="0,10,0,0">
+                    <Button Content="开始 AI 审核" Classes="primary" Command="{Binding AuditCommand}" Width="140"/>
+                    <Button Content="刷新审核后预览" Classes="info" Command="{Binding RefreshPreviewCommand}"
+                            IsEnabled="{Binding IsAuditComplete}"/>
+                    <Button Content="导出 AI 文档" Classes="info" Command="{Binding ExportCommand}"
+                            IsEnabled="{Binding IsAuditComplete}"/>
+                    <Button Content="清空" Classes="danger" Command="{Binding ClearCommand}"/>
+                </StackPanel>
+
+                <!-- 预览 -->
+                <Border Grid.Row="3" Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000" Margin="0,10,0,0">
+                    <Grid RowDefinitions="Auto,Auto,*">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Margin="0 0 0 8">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                                <TextBlock Text="文档预览" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <TextBlock Text="缩放" FontSize="12" Foreground="#555555" VerticalAlignment="Center"/>
+                                <Slider Minimum="0.5" Maximum="3" Value="{Binding PreviewZoom}"
+                                        Width="160" VerticalAlignment="Center"
+                                        TickFrequency="0.1" IsSnapToTickEnabled="False"/>
+                                <TextBlock Text="{Binding PreviewZoom, StringFormat={}{0:P0}}" FontSize="12"
+                                           Foreground="#555555" VerticalAlignment="Center" Width="42"/>
+                            </StackPanel>
+                        </Grid>
+                        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto"
+                                      VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding SelectedDocument.PngImages}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="10"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}"
+                                               Height="{Binding $parent[UserControl].DataContext.PreviewImageHeight}"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <!-- 渲染进度条（渲染时显示，完成后隐藏） -->
+                        <ProgressBar Grid.Row="2" Height="8" VerticalAlignment="Bottom" Margin="10,0,10,4"
+                                     IsVisible="{Binding RenderProgressVisible}"
+                                     Minimum="0" Maximum="100"
+                                     Value="{Binding ProgressValue}"
+                                     IsIndeterminate="{Binding ProgressIsIndeterminate}"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- 右：AI 审核意见 -->
+            <Border Grid.Column="1" Background="White" CornerRadius="15" Padding="15"
+                    BoxShadow="0 4 12 0 #26000000">
+                <Grid RowDefinitions="Auto,*">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                        <TextBlock Text="AI 审核意见" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                        <!-- 审核进度条（垂直，审核时显示，完成后隐藏） -->
+                        <ProgressBar Orientation="Vertical" Width="8" Margin="0,0,8,0"
+                                     IsVisible="{Binding AuditProgressVisible}"
+                                     Minimum="0" Maximum="100"
+                                     Value="{Binding ProgressValue}"
+                                     IsIndeterminate="{Binding ProgressIsIndeterminate}"/>
+                        <TextBox Grid.Column="1" Text="{Binding AuditResult}" IsReadOnly="True" TextWrapping="Wrap"
+                                 AcceptsReturn="True" FontSize="13" VerticalContentAlignment="Top"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

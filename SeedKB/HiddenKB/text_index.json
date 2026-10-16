@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "generated": "2026-10-13 11:46:52",
+  "files": [
+    {
+      "pdf": "1_天津宝坻八门城风电场5a机位TMT82.0A-Z210041AD叶片导线维修方案.pdf",
+      "txt": "txt/1_天津宝坻八门城风电场5a机位TMT82.0A-Z210041AD叶片导线维修方案.txt",
+      "pages": 13,
+      "chars": 6528,
+      "needsOcr": false
+    },
+    {
+      "pdf": "1_天津宝坻八门城风电场5a机位TMT82.0A-Z210045AD叶片导线维修方案.pdf",
+      "txt": "txt/1_天津宝坻八门城风电场5a机位TMT82.0A-Z210045AD叶片导线维修方案.txt",
+      "pages": 16,
+      "chars": 7885,
+      "needsOcr": false
+    },
+    {
+      "pdf": "TMT64.5叶片吊装位损伤叶片维修方案(B2版本)9.25(1).pdf",
+      "txt": "txt/TMT64.5叶片吊装位损伤叶片维修方案(B2版本)9.25(1).txt",
+      "pages": 10,
+      "chars": 6443,
+      "needsOcr": false
+    },
+    {
+      "pdf": "TXWF0000-32-301-A4-厂外叶片勘察作业指导书 -6.2.pdf",
+      "txt": "txt/TXWF0000-32-301-A4-厂外叶片勘察作业指导书 -6.2.txt",
+      "pages": 14,
+      "chars": 11836,
+      "needsOcr": false
+    },
+    {
+      "pdf": "TXWF0000-32-301-A4-厂外叶片勘察作业指导书 -定稿版.pdf",
+      "txt": "txt/TXWF0000-32-301-A4-厂外叶片勘察作业指导书 -定稿版.txt",
+      "pages": 15,
+      "chars": 9525,
+      "needsOcr": false
+    },
+    {
+      "pdf": "中材萍乡配套运达港能嵩县熊耳山项目16#机位SI59.6D-PX-C-18-053叶片雷击损伤维修方案-A0(1).pdf",
+      "txt": "txt/中材萍乡配套运达港能嵩县熊耳山项目16#机位SI59.6D-PX-C-18-053叶片雷击损伤维修方案-A0(1).txt",
+      "pages": 5,
+      "chars": 2552,
+      "needsOcr": false
+    },
+    {
+      "pdf": "中材萍乡配套运达港能嵩县熊耳山项目16#机位SI59.6D-PX-C-18-053叶片雷击损伤维修方案-A0.pdf",
+      "txt": "txt/中材萍乡配套运达港能嵩县熊耳山项目16#机位SI59.6D-PX-C-18-053叶片雷击损伤维修方案-A0.txt",
+      "pages": 5,
+      "chars": 2552,
+      "needsOcr": false
+    },
+    {
+      "pdf": "中材萍乡配套运达港能嵩县熊耳山项目2#机位SI59.6D-PX-B-18-015叶片雷击损伤维修方案-A1(1).pdf",
+      "txt": "txt/中材萍乡配套运达港能嵩县熊耳山项目2#机位SI59.6D-PX-B-18-015叶片雷击损伤维修方案-A1(1).txt",
+      "pages": 8,
+      "chars": 3608,
+      "needsOcr": false
+    },
+    {
+      "pdf": "中材萍乡配套运达港能嵩县熊耳山项目2#机位SI59.6D-PX-B-18-015叶片雷击损伤维修方案-A1.pdf",
+      "txt": "txt/中材萍乡配套运达港能嵩县熊耳山项目2#机位SI59.6D-PX-B-18-015叶片雷击损伤维修方案-A1.txt",
+      "pages": 8,
+      "chars": 3261,
+      "needsOcr": false
+    },
+    {
+      "pdf": "云南姚安小箐山风场TMT53.8-G150125D叶片维修方案.pdf",
+      "txt": "txt/云南姚安小箐山风场TMT53.8-G150125D叶片维修方案.txt",
+      "pages": 4,
+      "chars": 2225,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古察右前旗黄旗海分散式风电场 05#机位S76A-E210046AX叶片维修方案(更新版).pdf",
+      "txt": "txt/内蒙古察右前旗黄旗海分散式风电场 05#机位S76A-E210046AX叶片维修方案(更新版).txt",
+      "pages": 13,
+      "chars": 5713,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古察右前旗黄旗海分散式风电场 05#机位S76A-E210046AX叶片维修方案.pdf",
+      "txt": "txt/内蒙古察右前旗黄旗海分散式风电场 05#机位S76A-E210046AX叶片维修方案.txt",
+      "pages": 13,
+      "chars": 5499,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220166BQ叶片维修方案(2).pdf",
+      "txt": "txt/内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220166BQ叶片维修方案(2).txt",
+      "pages": 6,
+      "chars": 3045,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220169BQ叶片勘察报告 -.pdf",
+      "txt": "txt/内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220169BQ叶片勘察报告 -.txt",
+      "pages": 3,
+      "chars": 715,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220169BQ叶片维修方案.pdf",
+      "txt": "txt/内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220169BQ叶片维修方案.txt",
+      "pages": 6,
+      "chars": 3010,
+      "needsOcr": false
+    },
+    {
+      "pdf": "内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220173BQ叶片维修方案.pdf",
+      "txt": "txt/内蒙古阿拉善乌力吉风电场15#机位TMT-90B-E220173BQ叶片维修方案.txt",
+      "pages": 7,
+      "chars": 3266,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏中宁长山头风电场叶片VG安装方案-A1.pdf",
+      "txt": "txt/宁夏中宁长山头风电场叶片VG安装方案-A1.txt",
+      "pages": 5,
+      "chars": 2144,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏吴忠惠安堡盐池风场T180063AL叶片维修方案-A1.pdf",
+      "txt": "txt/宁夏吴忠惠安堡盐池风场T180063AL叶片维修方案-A1.txt",
+      "pages": 6,
+      "chars": 4120,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏海原西华山一期风电场SZ20机位150231C叶片维修方案.pdf",
+      "txt": "txt/宁夏海原西华山一期风电场SZ20机位150231C叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1890,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏海原西华山一期风电场SZ44#机位160135J叶片维修方案.pdf",
+      "txt": "txt/宁夏海原西华山一期风电场SZ44#机位160135J叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1530,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏海原西华山一期风电场SZ44#机位160139J叶片维修方案.pdf",
+      "txt": "txt/宁夏海原西华山一期风电场SZ44#机位160139J叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2291,
+      "needsOcr": false
+    },
+    {
+      "pdf": "宁夏西吉木头沟风电场J140184C叶片损伤维修方案（天风科技2023.4.6）.pdf",
+      "txt": "txt/宁夏西吉木头沟风电场J140184C叶片损伤维修方案（天风科技2023.4.6）.txt",
+      "pages": 10,
+      "chars": 3348,
+      "needsOcr": false
+    },
+    {
+      "pdf": "导流罩通用维修方案——评审(最终版).pdf",
+      "txt": "txt/导流罩通用维修方案——评审(最终版).txt",
+      "pages": 8,
+      "chars": 2574,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西大同浑源风电场11#机位E220028BE叶片维修方案(A1版）.pdf",
+      "txt": "txt/山西大同浑源风电场11#机位E220028BE叶片维修方案(A1版）.txt",
+      "pages": 19,
+      "chars": 10451,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西大同浑源风电场11#机位E220028BE叶片维修方案.pdf",
+      "txt": "txt/山西大同浑源风电场11#机位E220028BE叶片维修方案.txt",
+      "pages": 17,
+      "chars": 9232,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西左权山羊角风电场23#机位SI68.6 BXLD20086叶片损伤维修方案-A0.pdf",
+      "txt": "txt/山西左权山羊角风电场23#机位SI68.6 BXLD20086叶片损伤维修方案-A0.txt",
+      "pages": 5,
+      "chars": 1897,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西晋城泽州晋庙铺风场4#机位Z200012V叶片维修方案.pdf",
+      "txt": "txt/山西晋城泽州晋庙铺风场4#机位Z200012V叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2202,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西晋城泽州晋庙铺风电场3#机位T180310AQ叶片维修方案.pdf",
+      "txt": "txt/山西晋城泽州晋庙铺风电场3#机位T180310AQ叶片维修方案.txt",
+      "pages": 8,
+      "chars": 3853,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西繁峙乔家窑项目17#机组叶根避雷线断裂维修方案1.pdf",
+      "txt": "txt/山西繁峙乔家窑项目17#机组叶根避雷线断裂维修方案1.txt",
+      "pages": 7,
+      "chars": 1274,
+      "needsOcr": false
+    },
+    {
+      "pdf": "山西繁峙风场叶片维修方案.pdf",
+      "txt": "txt/山西繁峙风场叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1149,
+      "needsOcr": false
+    },
+    {
+      "pdf": "广东雷公岩风场SI686A型4#机位SI686A-PX-A-19-001号叶片维修方案-A0.pdf",
+      "txt": "txt/广东雷公岩风场SI686A型4#机位SI686A-PX-A-19-001号叶片维修方案-A0.txt",
+      "pages": 6,
+      "chars": 2208,
+      "needsOcr": false
+    },
+    {
+      "pdf": "广西富川邓家坝风场99#机位160007C叶片维修方案.pdf",
+      "txt": "txt/广西富川邓家坝风场99#机位160007C叶片维修方案.txt",
+      "pages": 3,
+      "chars": 692,
+      "needsOcr": false
+    },
+    {
+      "pdf": "广西苍梧六堡风场F13#机位G200143E叶片维修方案.pdf",
+      "txt": "txt/广西苍梧六堡风场F13#机位G200143E叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2429,
+      "needsOcr": false
+    },
+    {
+      "pdf": "新疆鄯善嘉泽风电场1A03#风机160074B叶片维修方案.pdf",
+      "txt": "txt/新疆鄯善嘉泽风电场1A03#风机160074B叶片维修方案.txt",
+      "pages": 6,
+      "chars": 3485,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河北张家口制氢风电场02#机位TMT-71.5E-Z220002AB叶片维修方案.pdf",
+      "txt": "txt/河北张家口制氢风电场02#机位TMT-71.5E-Z220002AB叶片维修方案.txt",
+      "pages": 13,
+      "chars": 6023,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河北张家口沽源西坝风电场17_机位T200039F叶片维修方案.pdf",
+      "txt": "txt/河北张家口沽源西坝风电场17_机位T200039F叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1482,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河北张家口涿鹿大寺风场08#机位EN68.8A-T210159G叶片损伤维修方案.pdf",
+      "txt": "txt/河北张家口涿鹿大寺风场08#机位EN68.8A-T210159G叶片损伤维修方案.txt",
+      "pages": 9,
+      "chars": 4664,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河北张家口蔚县明铺风场14#机位TMT53.8-T150153J叶片维修方案.pdf",
+      "txt": "txt/河北张家口蔚县明铺风场14#机位TMT53.8-T150153J叶片维修方案.txt",
+      "pages": 14,
+      "chars": 8249,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南南阳新野风电场XYA07a机位E202121Q叶片维修方案(1).pdf",
+      "txt": "txt/河南南阳新野风电场XYA07a机位E202121Q叶片维修方案(1).txt",
+      "pages": 5,
+      "chars": 2001,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南南阳新野风电场XYA07a机位E202121Q叶片维修方案.pdf",
+      "txt": "txt/河南南阳新野风电场XYA07a机位E202121Q叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2001,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南南阳新野风电场XYB19#机位E201886V叶片维修方案.pdf",
+      "txt": "txt/河南南阳新野风电场XYB19#机位E201886V叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1844,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南安阳永和风场106#风机T190172AU叶片维修方案.pdf",
+      "txt": "txt/河南安阳永和风场106#风机T190172AU叶片维修方案.txt",
+      "pages": 6,
+      "chars": 2876,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南安阳永和风场57#风机T190275AQ叶片维修方案.pdf",
+      "txt": "txt/河南安阳永和风场57#风机T190275AQ叶片维修方案.txt",
+      "pages": 7,
+      "chars": 2719,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南安阳永和风电场F114#机位T190260AQ叶片损伤维修方案.pdf",
+      "txt": "txt/河南安阳永和风电场F114#机位T190260AQ叶片损伤维修方案.txt",
+      "pages": 8,
+      "chars": 3572,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南安阳永和风电场F85#机位T190119AU叶片维修方案.pdf",
+      "txt": "txt/河南安阳永和风电场F85#机位T190119AU叶片维修方案.txt",
+      "pages": 6,
+      "chars": 2851,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南洛阳宜阳二期风电场6机位TMT-71.5D-E190136Q叶片维修方案.pdf",
+      "txt": "txt/河南洛阳宜阳二期风电场6机位TMT-71.5D-E190136Q叶片维修方案.txt",
+      "pages": 6,
+      "chars": 2424,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南洛阳宜阳二期风电场6机位TMT-71.5D-E190137P叶片维修方案.pdf",
+      "txt": "txt/河南洛阳宜阳二期风电场6机位TMT-71.5D-E190137P叶片维修方案.txt",
+      "pages": 7,
+      "chars": 3155,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南洛阳新安古都风场13#机位TMT-61.67B-G200035AT叶片维修方案.pdf",
+      "txt": "txt/河南洛阳新安古都风场13#机位TMT-61.67B-G200035AT叶片维修方案.txt",
+      "pages": 4,
+      "chars": 1844,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南渑池石泉风电场 8机位X160031叶片维修方案.pdf",
+      "txt": "txt/河南渑池石泉风电场 8机位X160031叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2163,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南渑池石泉风电场 8机位X160033叶片维修方案.pdf",
+      "txt": "txt/河南渑池石泉风电场 8机位X160033叶片维修方案.txt",
+      "pages": 6,
+      "chars": 2382,
+      "needsOcr": false
+    },
+    {
+      "pdf": "河南鹤壁淇县SI51.9-BJ-A-15-152叶片维修方案-A0.pdf",
+      "txt": "txt/河南鹤壁淇县SI51.9-BJ-A-15-152叶片维修方案-A0.txt",
+      "pages": 4,
+      "chars": 1560,
+      "needsOcr": false
+    },
+    {
+      "pdf": "湖南新化大熊山风电场23#机位130072C叶片维修方案.pdf",
+      "txt": "txt/湖南新化大熊山风电场23#机位130072C叶片维修方案.txt",
+      "pages": 4,
+      "chars": 2518,
+      "needsOcr": false
+    },
+    {
+      "pdf": "甘肃环县毛井风场TMT53.8-X140158D叶片维修方案.pdf",
+      "txt": "txt/甘肃环县毛井风场TMT53.8-X140158D叶片维修方案.txt",
+      "pages": 4,
+      "chars": 2004,
+      "needsOcr": false
+    },
+    {
+      "pdf": "福建古田泮洋风场14#机位X150081叶片损伤维修方案.pdf",
+      "txt": "txt/福建古田泮洋风场14#机位X150081叶片损伤维修方案.txt",
+      "pages": 6,
+      "chars": 2171,
+      "needsOcr": false
+    },
+    {
+      "pdf": "福建古田泮洋风场19#机位X150099叶片损伤维修方案-A1.pdf",
+      "txt": "txt/福建古田泮洋风场19#机位X150099叶片损伤维修方案-A1.txt",
+      "pages": 8,
+      "chars": 3309,
+      "needsOcr": false
+    },
+    {
+      "pdf": "福建宁德运达虎贝风电场26#机位076叶片损伤维修方案-A0.pdf",
+      "txt": "txt/福建宁德运达虎贝风电场26#机位076叶片损伤维修方案-A0.txt",
+      "pages": 4,
+      "chars": 1613,
+      "needsOcr": false
+    },
+    {
+      "pdf": "福建宁德运达虎贝风电场28#机位057叶片和066叶片损伤维修方案-A0.pdf",
+      "txt": "txt/福建宁德运达虎贝风电场28#机位057叶片和066叶片损伤维修方案-A0.txt",
+      "pages": 5,
+      "chars": 2017,
+      "needsOcr": false
+    },
+    {
+      "pdf": "贵州桐梓花坝风电场TMT53.8-G160040B叶片维修方案.pdf",
+      "txt": "txt/贵州桐梓花坝风电场TMT53.8-G160040B叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2543,
+      "needsOcr": false
+    },
+    {
+      "pdf": "陕西安塞砖窑湾风场5#机位SI64JQA21008叶片维修方案-A0.pdf",
+      "txt": "txt/陕西安塞砖窑湾风场5#机位SI64JQA21008叶片维修方案-A0.txt",
+      "pages": 5,
+      "chars": 1801,
+      "needsOcr": false
+    },
+    {
+      "pdf": "陕西府谷宁源风场F05#机位E210287AZ叶片维修方案(更新版).pdf",
+      "txt": "txt/陕西府谷宁源风场F05#机位E210287AZ叶片维修方案(更新版).txt",
+      "pages": 10,
+      "chars": 5451,
+      "needsOcr": false
+    },
+    {
+      "pdf": "黑龙江齐齐哈尔龙江杏山风场40#机位T140017A叶片维修方案.pdf",
+      "txt": "txt/黑龙江齐齐哈尔龙江杏山风场40#机位T140017A叶片维修方案.txt",
+      "pages": 6,
+      "chars": 2332,
+      "needsOcr": false
+    },
+    {
+      "pdf": "黑龙江齐齐哈尔龙江杏山风场45#机位T140038A叶片维修方案.pdf",
+      "txt": "txt/黑龙江齐齐哈尔龙江杏山风场45#机位T140038A叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2024,
+      "needsOcr": false
+    },
+    {
+      "pdf": "黑龙江齐齐哈尔龙江杏山风场50#机位T140055A叶片维修方案.pdf",
+      "txt": "txt/黑龙江齐齐哈尔龙江杏山风场50#机位T140055A叶片维修方案.txt",
+      "pages": 5,
+      "chars": 2103,
+      "needsOcr": false
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:叶片缺陷审核.Models"
+             xmlns:pages="using:叶片缺陷审核.ViewModels.Pages"
+             x:Class="叶片缺陷审核.Views.Pages.LLMConfigPage"
+             x:DataType="pages:LLMConfigPageViewModel">
+
+    <Border Margin="10" Background="#E8F5E9" CornerRadius="15">
+        <Grid ColumnDefinitions="300,*" Margin="10">
+            <!-- 左：模型列表 -->
+            <Border Grid.Column="0" Background="White" CornerRadius="15" Padding="15"
+                    BoxShadow="0 4 12 0 #26000000" Margin="0,0,10,0">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                        <TextBlock Text="模型列表" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <ListBox Grid.Row="1" ItemsSource="{Binding Models}"
+                             SelectedItem="{Binding EditingModel}"
+                             x:Name="ModelListBox">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:LlmModelConfig">
+                                <TextBlock Text="{Binding Name}" FontSize="14" Margin="4"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Grid.Row="2" Content="＋ 新建模型" Classes="info"
+                            Command="{Binding NewModelCommand}" HorizontalAlignment="Stretch" Margin="0,10,0,0"/>
+                </Grid>
+            </Border>
+
+            <!-- 右：编辑区 -->
+            <Border Grid.Column="1" Background="White" CornerRadius="15" Padding="20"
+                    BoxShadow="0 4 12 0 #26000000">
+                <Grid RowDefinitions="Auto,*" IsVisible="{Binding EditingModel, Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" Margin="0 0 0 10">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="模型参数" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="10">
+                            <Button Content="保存" Classes="info" Command="{Binding SaveModelCommand}"/>
+                            <Button Content="启用" Classes="primary" Command="{Binding EnableModelCommand}"/>
+                            <Button Content="测试连接" Classes="info" Command="{Binding TestCommand}"/>
+                            <Button Content="删除" Classes="danger" Command="{Binding DeleteModelCommand}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1">
+                        <StackPanel Spacing="10" Margin="0,0,0,10">
+                            <TextBlock Text="配置名称" FontSize="13" Foreground="#555555"/>
+                            <TextBox Text="{Binding EditingModel.Name}" Height="36"/>
+                            <TextBlock Text="API 地址（OpenAI 兼容，不含 /chat/completions）" FontSize="13" Foreground="#555555"/>
+                            <TextBox Text="{Binding EditingModel.ApiUrl}" Height="36"/>
+                            <TextBlock Text="API Key" FontSize="13" Foreground="#555555"/>
+                            <TextBox Text="{Binding EditingModel.ApiKey}" Height="36" PasswordChar="•"/>
+                            <TextBlock Text="模型 ID" FontSize="13" Foreground="#555555"/>
+                            <TextBox Text="{Binding EditingModel.ModelId}" Height="36"/>
+                            <TextBlock Text="Temperature" FontSize="13" Foreground="#555555"/>
+                            <NumericUpDown Value="{Binding EditingModel.Temperature}" Minimum="0" Maximum="2"
+                                           Increment="0.1" FormatString="0.0" Height="36" Width="150"
+                                           HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

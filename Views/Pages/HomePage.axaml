@@ -1,0 +1,107 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:叶片缺陷审核.Models"
+             xmlns:pages="using:叶片缺陷审核.ViewModels.Pages"
+             x:Class="叶片缺陷审核.Views.Pages.HomePage"
+             x:DataType="pages:HomePageViewModel">
+
+    <Border Margin="10" Background="#E8F5E9" CornerRadius="15">
+        <Grid ColumnDefinitions="260,*" Margin="10">
+
+            <!-- 左：知识库列表 -->
+            <Border Grid.Column="0" Background="White" CornerRadius="15" Padding="15"
+                    BoxShadow="0 4 12 0 #26000000" Margin="0,0,10,0">
+                <Grid RowDefinitions="Auto,Auto,*,Auto">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                        <TextBlock Text="知识库" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <TextBox Grid.Row="1" Text="{Binding NewBaseName}" PlaceholderText="新知识库名称"
+                             Height="32" Margin="0 0 0 8"/>
+                    <ListBox Grid.Row="2" ItemsSource="{Binding Bases}" SelectedItem="{Binding SelectedBase}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="models:KnowledgeBaseInfo">
+                                <StackPanel Orientation="Horizontal" Margin="2">
+                                    <TextBlock Text="{Binding Name}" FontSize="14" VerticalAlignment="Center"/>
+                                    <TextBlock Text="（内置）" FontSize="11" Foreground="#9E9E9E"
+                                               VerticalAlignment="Center"
+                                               IsVisible="{Binding IsBuiltin}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8" Margin="0,10,0,0">
+                        <Button Content="新建" Classes="info" Command="{Binding CreateBaseCommand}"/>
+                        <Button Content="删除" Classes="danger" Command="{Binding DeleteBaseCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- 右：条目 + 检索 + AI 问答 -->
+            <Grid Grid.Column="1" RowDefinitions="*,Auto" Margin="0,0,0,0">
+
+                <Border Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000">
+                    <Grid RowDefinitions="Auto,*,Auto">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Margin="0 0 0 10">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                                <TextBlock Text="文档条目" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8">
+                                <Button Content="导入文档" Classes="primary" Command="{Binding ImportFileCommand}"
+                                        IsEnabled="{Binding !IsBusy}"/>
+                                <Button Content="删除条目" Classes="danger" Command="{Binding DeleteEntryCommand}"/>
+                                <TextBox Text="{Binding SearchKeyword}" PlaceholderText="关键词检索（标题/标签/内容）"
+                                         Height="32" Width="300"/>
+                                <Button Content="检索" Classes="info" Command="{Binding SearchCommand}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <ListBox Grid.Row="1" ItemsSource="{Binding Entries}" SelectedItem="{Binding SelectedEntry}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate x:DataType="models:KnowledgeEntry">
+                                    <StackPanel Margin="2">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <TextBlock Text="{Binding Title}" FontSize="14" FontWeight="Bold"/>
+                                            <Border Background="#FFF3E0" CornerRadius="4" Padding="4 1"
+                                                    IsVisible="{Binding ArchiveType, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                                                <TextBlock Text="{Binding ArchiveType}" FontSize="10" Foreground="#E65100"/>
+                                            </Border>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Content}" FontSize="11" Foreground="#9E9E9E"
+                                                   MaxLines="1" TextTrimming="CharacterEllipsis"
+                                                   IsVisible="{Binding Content, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <TextBlock Grid.Row="2" Text="{Binding StatusMessage}" FontSize="12"
+                                   Foreground="#4CAF50" Margin="0 8 0 0"/>
+                    </Grid>
+                </Border>
+
+                <!-- AI 问答区 -->
+                <Border Grid.Row="1" Background="White" CornerRadius="15" Padding="15"
+                        BoxShadow="0 4 12 0 #26000000" Margin="0,10,0,0">
+                    <Grid RowDefinitions="Auto,*,Auto" Height="260">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="AI 问答（RAG）" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBox Grid.Row="1" Text="{Binding Answer}" IsReadOnly="True" TextWrapping="Wrap"
+                                 AcceptsReturn="True" FontSize="13"/>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8" Margin="0 8 0 0">
+                            <TextBox Text="{Binding Question}" PlaceholderText="输入问题，基于知识库回答"
+                                     Height="32" Width="480"/>
+                            <Button Content="提问" Classes="primary" Command="{Binding AskCommand}"
+                                    IsEnabled="{Binding !IsBusy}"/>
+                            <Button Content="停止" Classes="danger" Command="{Binding CancelAskCommand}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

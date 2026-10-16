@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:叶片缺陷审核.ViewModels"
+        x:Class="叶片缺陷审核.Views.LicenseWindow"
+        x:DataType="vm:LicenseWindowViewModel"
+        WindowDecorations="None"
+        ExtendClientAreaToDecorationsHint="True"
+        TransparencyBackgroundFallback="Transparent"
+        CanResize="False"
+        Width="900" Height="520"
+        WindowStartupLocation="CenterScreen"
+        Background="#F2F6F2"
+        Icon="avares://叶片维修工程文件编制审核系统/Assets/Logo.ico">
+
+    <Grid ColumnDefinitions="*,420" x:Name="RootGrid">
+        <!-- 左侧品牌区 -->
+        <Border Grid.Column="0" Background="#4CAF50">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Border Background="#FFFFFF" Width="72" Height="72" CornerRadius="16">
+                    <Image Source="avares://叶片维修工程文件编制审核系统/Assets/Logo.ico" Width="56" Height="56"/>
+                </Border>
+                <TextBlock Text="叶片维修工程文件编制审核系统" FontSize="22" FontWeight="Bold"
+                           Foreground="White" Margin="0,24,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Text="AI 驱动的维修文件编制与审核平台" FontSize="13"
+                           Foreground="#C8E6C9" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 右侧面板 -->
+        <Panel Grid.Column="1">
+            <Grid RowDefinitions="Auto,*" Margin="40,30,40,30">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+                    <Button Click="Close_Click" Background="Transparent" BorderThickness="0"
+                            ToolTip.Tip="关闭">
+                        <TextBlock Text="&#xe82a;" FontFamily="{StaticResource Iconfont}" FontSize="15" Foreground="#555555"/>
+                    </Button>
+                </StackPanel>
+
+                <!-- 激活模式 -->
+                <StackPanel Grid.Row="1" IsVisible="{Binding IsActivateMode}"
+                            VerticalAlignment="Center" Spacing="14">
+                    <TextBlock Text="软件激活" FontSize="24" FontWeight="Bold" Foreground="#333333"/>
+                    <TextBlock Text="首次使用需激活：输入手机号，登录密码将由管理员通过邮件发放"
+                               FontSize="12" Foreground="#9E9E9E" TextWrapping="Wrap"/>
+                    <TextBlock Text="手机号" FontSize="13" Foreground="#555555" Margin="0,8,0,0"/>
+                    <TextBox Text="{Binding Phone}" PlaceholderText="请输入 11 位手机号" Height="38" FontSize="14"/>
+                    <Button Content="激 活" Classes="primary" Command="{Binding ActivateCommand}"
+                            IsEnabled="{Binding !IsBusy}" Height="40" FontSize="15" Margin="0,10,0,0"/>
+                    <TextBlock Text="{Binding Message}" Foreground="#E57373" FontSize="12" TextWrapping="Wrap"/>
+                    <Border Background="#E8F5E9" CornerRadius="8" Padding="12">
+                        <TextBlock Text="激活后，登录密码将自动发送给管理员，由管理员统一发放给您。"
+                                   FontSize="11" Foreground="#555555" TextWrapping="Wrap"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- 登录模式 -->
+                <StackPanel Grid.Row="1" IsVisible="{Binding !IsActivateMode}"
+                            VerticalAlignment="Center" Spacing="14">
+                    <TextBlock Text="用户登录" FontSize="24" FontWeight="Bold" Foreground="#333333"/>
+                    <TextBlock Text="用户名：激活时输入的手机号" FontSize="12" Foreground="#9E9E9E"/>
+                    <TextBlock Text="用户名" FontSize="13" Foreground="#555555" Margin="0,8,0,0"/>
+                    <TextBox Text="{Binding Phone}" PlaceholderText="手机号" Height="38" FontSize="14"/>
+                    <TextBlock Text="密码" FontSize="13" Foreground="#555555"/>
+                    <TextBox Text="{Binding Password}" PlaceholderText="激活时生成的密码" Height="38" FontSize="14"
+                             PasswordChar="•"/>
+                    <Button Content="登 录" Classes="primary" Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding !IsBusy}" Height="40" FontSize="15" Margin="0,10,0,0"/>
+                    <Button Content="重新激活" Classes="primary" Click="Reactivate_Click"
+                            Height="40" FontSize="15" Margin="0,10,0,0"
+                            ToolTip.Tip="删除本机授权并回到激活界面"/>
+                    <TextBlock Text="{Binding Message}" Foreground="#E57373" FontSize="12" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Grid>
+        </Panel>
+    </Grid>
+</Window>

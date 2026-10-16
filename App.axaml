@@ -1,0 +1,116 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="叶片缺陷审核.App"
+             xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
+             RequestedThemeVariant="Default">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <sukiUi:SukiTheme ThemeColor="Blue" Locale="zh-CN" />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+
+        <!-- ═══════════════ DataGrid 全局风格：绿色表头 + 单元格居中（KN1 风格） ═══════════════ -->
+        <Style Selector="DataGridColumnHeader">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8 6"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalAlignment="Center"
+                                           Margin="{TemplateBinding Padding}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="DataGridCell">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="DataGridCell TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- 主操作按钮（绿色）/ 辅助按钮（蓝色）/ 危险按钮（红色），KN1 风格，整块高亮 -->
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="15 0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Bg" Background="{TemplateBinding Background}" CornerRadius="10"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.primary:pointerover /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#43A047"/>
+        </Style>
+        <Style Selector="Button.primary:pressed /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#3B8C40"/>
+        </Style>
+        <Style Selector="Button.info">
+            <Setter Property="Background" Value="#4A90D9"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="15 0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Bg" Background="{TemplateBinding Background}" CornerRadius="10"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.info:pointerover /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#3A7FC1"/>
+        </Style>
+        <Style Selector="Button.info:pressed /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#3270AC"/>
+        </Style>
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#E57373"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="15 0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Bg" Background="{TemplateBinding Background}" CornerRadius="10"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.danger:pointerover /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#D66262"/>
+        </Style>
+        <Style Selector="Button.danger:pressed /template/ Border#PART_Bg">
+            <Setter Property="Background" Value="#C25858"/>
+        </Style>
+    </Application.Styles>
+    <Application.Resources>
+        <!-- 图标字体（迁自 KN1 项目 iconfont.ttf） -->
+        <FontFamily x:Key="Iconfont">avares://叶片维修工程文件编制审核系统/Assets/Fonts/iconfont.ttf#iconfont</FontFamily>
+    </Application.Resources>
+</Application>

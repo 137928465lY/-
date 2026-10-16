@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:pages="using:叶片缺陷审核.ViewModels.Pages"
+             x:Class="叶片缺陷审核.Views.Pages.SettingPage"
+             x:DataType="pages:SettingPageViewModel">
+
+    <Border Margin="10" Background="#E8F5E9" CornerRadius="15">
+        <ScrollViewer>
+            <StackPanel Margin="10" Spacing="10">
+
+                <Border Background="White" CornerRadius="15" Padding="15" BoxShadow="0 4 12 0 #26000000">
+                    <StackPanel Spacing="6">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="关于" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock Text="叶片维修工程文件编制审核系统 v1.0" FontSize="14" FontWeight="Bold"/>
+                        <TextBlock Text="AI 驱动的风电叶片维修文档审核、知识库问答与缺陷文档生成桌面应用。" FontSize="12"
+                                   Foreground="#757575" TextWrapping="Wrap"/>
+                        <TextBlock Text="技术栈：Avalonia 12 + SukiUI + ReactiveUI + Microsoft.Extensions.DependencyInjection" FontSize="11"
+                                   Foreground="#9E9E9E"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" CornerRadius="15" Padding="15" BoxShadow="0 4 12 0 #26000000">
+                    <StackPanel Spacing="6">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="授权信息" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding LicenseInfo}" FontSize="12" TextWrapping="Wrap"/>
+                        <TextBlock Text="授权与手机号、本机 MAC 绑定；如需更换设备，请在登录界面点击右上角【重新激活】。"
+                                   FontSize="11" Foreground="#9E9E9E" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" CornerRadius="15" Padding="15" BoxShadow="0 4 12 0 #26000000">
+                    <StackPanel Spacing="6">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="领域字段清单（appsettings.json 配置）" Foreground="Black" FontSize="16"
+                                       FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding DomainFieldsText}" FontSize="12" TextWrapping="Wrap"/>
+                        <TextBlock Text="该清单用于文档审核提示词（检查字段完整准确性），可在 appsettings.json 的 DomainFields 节修改。"
+                                   FontSize="11" Foreground="#9E9E9E" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="White" CornerRadius="15" Padding="15" BoxShadow="0 4 12 0 #26000000">
+                    <StackPanel Spacing="6">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                            <Border Background="#4CAF50" Width="5" CornerRadius="2" Margin="0 3 10 3"/>
+                            <TextBlock Text="数据说明" Foreground="Black" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <TextBlock FontSize="12" Foreground="#757575" TextWrapping="Wrap"
+                                   Text="模型配置：%AppData%\叶片缺陷审核\llm_config.json&#x0a;知识库数据：%AppData%\叶片缺陷审核\knowledge_base.json&#x0a;归档文件：%AppData%\叶片缺陷审核\archive\&#x0a;全局配置：程序目录下 appsettings.json"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

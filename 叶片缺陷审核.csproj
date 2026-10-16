@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <AssemblyName>叶片维修工程文件编制审核系统</AssemblyName>
+        <ApplicationIcon>Assets\Logo.ico</ApplicationIcon>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <AcceptNPOIOSMFLicense>true</AcceptNPOIOSMFLicense>
+        <!-- 禁用 NuGet 漏洞审计联网检查，支持离线构建 -->
+        <NuGetAudit>True</NuGetAudit>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Models\" />
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+        <!-- 内置知识库种子（隐藏案例库 PDF + 叶片维修知识库 JSON/docx），首启拷入归档目录 -->
+        <Content Include="SeedKB\**\*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="12.0.5" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="12.0.1" />
+        <PackageReference Include="Avalonia.Desktop" Version="12.0.5" />
+        <PackageReference Include="CsvHelper" Version="33.1.0" />
+        <PackageReference Include="DocumentFormat.OpenXml" Version="3.4.1" />
+        <PackageReference Include="HtmlToOpenXml.dll" Version="3.3.1" />
+        <PackageReference Include="MiniPdf" Version="0.43.0" />
+        <PackageReference Include="NPOI" Version="2.8.0">
+            <AcceptNPOIOSMFLicense>true</AcceptNPOIOSMFLicense>
+        </PackageReference>
+        <PackageReference Include="PdfiumViewer" Version="2.13.0" />
+        <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.5" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="12.0.5" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.8" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="ReactiveUI.Avalonia" Version="12.0.3" />
+        <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+        <PackageReference Include="SukiUI" Version="7.0.1" />
+        <PackageReference Include="UglyToad.PdfPig" Version="1.7.0-custom-5" />
+    </ItemGroup>
+</Project>
